@@ -2,8 +2,13 @@ import React from "react";
 
 export default function Main() {
   return (
-    <section>
-      <h2>Main</h2>
+    <section className="main">
+      <form className="main__form">
+        <textarea />
+        <button className="form__button">
+          Create my Lesson Plan
+        </button>
+      </form>
     </section>
   )
 }
