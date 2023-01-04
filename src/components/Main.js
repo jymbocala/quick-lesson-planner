@@ -10,7 +10,8 @@ export default function Main() {
   // Funtion to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
-    fetch("https://localhost:3001/", {
+    console.log("button clicked!")
+    fetch("http://localhost:3001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
