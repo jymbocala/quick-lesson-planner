@@ -1,0 +1,30 @@
+$medium: 768px;
+$large: 1200px;
+
+/* Medium to Large Screens */
+@media screen and (min-width: $medium) {
+  /* HEADER */
+  .hero {
+    // border: 1px red solid;
+    width: 1400px;
+  }
+
+  .hero__img {
+    width: 40%;
+  }
+
+  .hero__info {
+    max-width: 60%;
+  }
+
+  /* MAIN */
+  .form__textarea {
+    width: 400px;
+  }
+}
+
+
+/* Larger Screens */
+@media screen and (min-width: $large) {
+  
+}

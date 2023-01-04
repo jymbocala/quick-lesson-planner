@@ -4,9 +4,9 @@ export default function Main() {
   return (
     <section className="main">
       <form className="main__form">
-        <textarea />
+        <textarea className="form__textarea"/>
         <button className="form__button">
-          Create my Lesson Plan
+          CREATE LESSON PLAN
         </button>
       </form>
     </section>
