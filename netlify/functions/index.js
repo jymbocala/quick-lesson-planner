@@ -16,7 +16,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 exports.handler = async function (event, context) {
-  // your server-side functionality
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "access-control-allow-origin": "*",
+      },
+    };
+  }
   console.log(event);
   const { message } = JSON.parse(event.body);
   const response = await openai.createCompletion({
@@ -25,13 +32,12 @@ exports.handler = async function (event, context) {
     max_tokens: 200,
     temperature: 0.5,
   });
-  // console.log(response.data);
 
   return {
     statusCode: 200,
     body: { message: response.data?.choices[0]?.text },
     headers: {
       "access-control-allow-origin": "*",
-    }
-  }
+    },
+  };
 };
