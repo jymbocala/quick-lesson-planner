@@ -23,11 +23,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/", async (req, res) => {
+  const { message } = req.body;
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: "Say this is a test",
-    max_tokens: 7,
-    temperature: 0,
+    prompt: `${message}`,
+    max_tokens: 100,
+    temperature: 0.5,
   });
   console.log(response.data)
   // When OpenAI comes back with a response, pass it to the front end.
