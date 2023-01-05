@@ -1,5 +1,4 @@
 // A react component that inputs a textarea message then performs a fetch request localhost:3001 gets back a response as a data.message and displays that message to a box below.
-
 import React, { useState } from "react";
 
 export default function Main() {
@@ -24,13 +23,13 @@ export default function Main() {
 
   // Function to handle change in textarea
   function handleChange(e) {
-    const value = e.target.value;
-    setMessage(value);
+    const {value} = e.target;
+    setMessage(value)
   }
 
   return (
     <section className="main">
-      <form className="main__form">
+      <form className="main__form" >
         <textarea
           className="form__textarea"
           value={message}

@@ -3,17 +3,19 @@
 const OpenAI = require("openai");
 const { Configuration, OpenAIApi } = OpenAI;
 
-
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const port = 3001;
+// API credentials
+const api_key = process.env.API_KEY
 
 const configuration = new Configuration({
   organization: "org-oaUsSfZBaz6fJgT00AJcF2Dj",
-  // apiKey: process.env.OPENAI_API_KEY,
-  apiKey: "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",
+  apiKey: api_key
 });
 const openai = new OpenAIApi(configuration);
 
@@ -32,9 +34,6 @@ app.post("/", async (req, res) => {
   if(response.data.choices[0].text) {
     res.json({message: response.data.choices[0].text})
   }
-  res.json({
-    message: "Hello World!",
-  });
 });
 
 app.listen(port, () => {
