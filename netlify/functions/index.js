@@ -17,6 +17,7 @@ const openai = new OpenAIApi(configuration);
 
 exports.handler = async function (event, context) {
   // your server-side functionality
+  console.log(event);
   const { message } = JSON.parse(event.body);
   const response = await openai.createCompletion({
     model: "text-davinci-003",
@@ -24,7 +25,7 @@ exports.handler = async function (event, context) {
     max_tokens: 200,
     temperature: 0.5,
   });
-  console.log(response.data);
+  // console.log(response.data);
 
   return {
     statusCode: 200,
