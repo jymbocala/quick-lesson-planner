@@ -13,14 +13,25 @@ const port = 3001;
 const configuration = new Configuration({
   organization: "org-oaUsSfZBaz6fJgT00AJcF2Dj",
   // apiKey: process.env.OPENAI_API_KEY,
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
+  const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "Say this is a test",
+    max_tokens: 7,
+    temperature: 0,
+  });
+  console.log(response.data)
+  // When OpenAI comes back with a response, pass it to the front end.
+  if(response.data.choices[0].text) {
+    res.json({message: response.data.choices[0].text})
+  }
   res.json({
     message: "Hello World!",
   });
