@@ -39,7 +39,7 @@ exports.handler = async function (event, context) {
 
   return {
     statusCode: 200,
-    body: { message: response.data?.choices[0]?.text },
+    body: JSON.stringify({ message: response.data?.choices[0]?.text }),
     headers,
   };
 };
