@@ -15,13 +15,17 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+};
+
 exports.handler = async function (event, context) {
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
-      headers: {
-        "access-control-allow-origin": "*",
-      },
+      headers,
     };
   }
   console.log(event);
@@ -36,8 +40,6 @@ exports.handler = async function (event, context) {
   return {
     statusCode: 200,
     body: { message: response.data?.choices[0]?.text },
-    headers: {
-      "access-control-allow-origin": "*",
-    },
+    headers,
   };
 };
