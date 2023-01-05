@@ -25,8 +25,12 @@ exports.handler = async function (event, context) {
     temperature: 0.5,
   });
   console.log(response.data);
-  // When OpenAI comes back with a response, pass it to the front end.
-  if (response.data.choices[0].text) {
-    res.json({ message: response.data.choices[0].text });
+
+  return {
+    statusCode: 200,
+    body: { message: response.data?.choices[0]?.text },
+    headers: {
+      "access-control-allow-origin": "*",
+    }
   }
 };

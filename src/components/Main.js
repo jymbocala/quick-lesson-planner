@@ -10,7 +10,7 @@ export default function Main() {
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
     console.log("button clicked!")
-    fetch("http://localhost:3001/", {
+    fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
