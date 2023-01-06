@@ -3,21 +3,19 @@ import React, { useState } from "react";
 
 export default function Main() {
   // Initialize message and response states
-  const [lessonFormData, setLessonFormData] = useState(
-    {
-      subject: "",
-      length: "",
-      topic: "",
-      learningIntention: "",
-      activities: ""
-    }
-  );
+  const [lessonFormData, setLessonFormData] = useState({
+    subject: "",
+    length: "",
+    topic: "",
+    learningIntention: "",
+    activities: "",
+  });
   const [response, setResponse] = useState("");
 
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
-    console.log("button clicked!")
+    console.log("button clicked!");
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
@@ -31,15 +29,15 @@ export default function Main() {
 
   // Function to handle change in textarea
   function handleChange(e) {
-    const {value} = e.target;
-    setLessonFormData(value)
+    const { value } = e.target;
+    setLessonFormData(value);
   }
 
   return (
     <section className="main">
       <h2>Create a Lesson Plan</h2>
-      <form className="main__form" >
-        <input 
+      <form className="main__form">
+        <input
           type="text"
           placeholder="Lesson Subject"
           onChange={handleChange}
@@ -47,44 +45,44 @@ export default function Main() {
           value={lessonFormData.subject}
         />
 
-        <label htmlFor="length">Lesson length:</label>
-        
-        <select 
-            id="length" 
+        <div className="form_length">
+          <label htmlFor="length">Lesson length:  </label>
+          <select
+            id="length"
             value={lessonFormData.length}
             onChange={handleChange}
             name="length"
-        >
-          <option value="30">30</option>
-          <option value="35">35</option>
-          <option value="40">40</option>
-          <option value="45">45</option>
-          <option value="50">50</option>
-          <option value="55">55</option>
-          <option value="60">60</option>
-        </select>
+          >
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>
+          <label>minutes</label>
+        </div>
 
-        <input 
+        <input
           type="text"
           placeholder="Lesson Topic"
           onChange={handleChange}
           name="topic"
           value={lessonFormData.topic}
         />
-        <input 
+        <input
           type="text"
-          placeholder="Learning Intention  (optional)"
+          placeholder="Learning Intention"
           onChange={handleChange}
           name="learningIntention"
           value={lessonFormData.learningIntention}
         />
         <br />
         <textarea
-          className="form__textarea"
           placeholder="Enter activities"
           value={lessonFormData.activities}
           onChange={handleChange}
-          
         />
         <button className="form__button" onClick={handleSubmit}>
           GENERATE LESSON PLAN
