@@ -16,9 +16,9 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
 };
 
 exports.handler = async function (event, context) {
@@ -28,15 +28,61 @@ exports.handler = async function (event, context) {
       headers,
     };
   }
-  console.log(event);
-  const { message } = JSON.parse(event.body);
+  console.log("event console log ",event);
+  const {
+    lessonFormData: { subject, length, topic, learningIntention, activities },
+  } = JSON.parse(event.body);
+  console.log("console logging my variable ", subject, length, topic, learningIntention, activities)
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `${message}`,
-    max_tokens: 200,
-    temperature: 0.5,
-  });
+    prompt: `Prompt: Can you make me 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
+Lesson Context/ Topic: Romeo and Juliet
+The learning intention of the lesson is to: analyse the consequence of bad decision-making.
+1. Intro Discussion
+-  After Romeo Kills Tybalt, what are the problems facing Romeo Juliet?
+2. Analysis Task
+- Students to make a flowchart to summarise the plan.
+- Identify problems in each stage of the plan.
+3. Class discussion
+    
+Answer:
+Learning Intention: Analyse the consequence of bad decision-making.
 
+Introduction (5 minutes):
+Watch the plot summary of Romeo and Juliet to refresh students' memory of the overall storyline
+
+Class discussion (5 minutes):
+- After Romeo kills Tybalt, what are the problems facing Romeo and Juliet?
+- Brainstorm the possible issue in students' books
+
+Table Read Activity (10 minutes): 
+1. Friar Laurence’s speech Act 4, Scene 1 (pg. 70-73) 
+2.  Analyse the speech
+- Meaning
+- The impact of the speech on Juliet
+
+Analysis Task (15 minutes):
+1. Students are to summarise the plan into 6 clear steps as a flow chart
+2. Identify any possible problems at each stage.
+3. In pairs, students are to discuss and answer ‘Can you think of a better plan than the one that the Friar came up with?’
+
+Class Discussion (10 minutes):
+1. Do you think that the Friar was wise and responsible for helping Juliet in this way?
+2. If you were Juliet, would you have gone through with this plan?
+3. Do you think it was selfish of Juliet to want to fake her own death? To put her parents through that?
+
+Exit Ticket (5 minutes): 
+- Based on the ideas in Romeo and Juliet, how do bad decisions create damage in families and communities?
+    
+Prompt: Can you make me ${length} minutes lesson plan for a Year 11 (students aged 15-17) ${subject} class including these ideas/activities:
+Lesson Context/ Topic: ${topic}
+The learning intention of the lesson is to: ${learningIntention}
+${activities}
+
+Answer:`,
+    max_tokens: 1000,
+    temperature: 0.6,
+  });
   return {
     statusCode: 200,
     body: JSON.stringify({ message: response.data?.choices[0]?.text }),

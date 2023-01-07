@@ -5,32 +5,44 @@ export default function Main() {
   // Initialize message and response states
   const [lessonFormData, setLessonFormData] = useState({
     subject: "",
-    length: "",
+    length: 50,
     topic: "",
     learningIntention: "",
     activities: "",
   });
   const [response, setResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
     console.log("button clicked!");
+    setIsLoading(true);
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ lessonFormData }),
+      body: JSON.stringify(lessonFormData),
     })
       .then((res) => res.json())
-      .then((data) => setResponse(data.message));
+      .then((data) => {
+        console.log(data);
+        setResponse(data.message);
+        setIsLoading(false);
+      });
   }
 
   // Function to handle change in textarea
   function handleChange(e) {
-    const { value } = e.target;
-    setLessonFormData(value);
+    const { name, value, type, checked } = e.target;
+    setLessonFormData((prev) => {
+      return {
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
+    console.log(lessonFormData);
   }
 
   return (
@@ -46,7 +58,7 @@ export default function Main() {
         />
 
         <div className="form_length">
-          <label htmlFor="length">Lesson length:  </label>
+          <label htmlFor="length">Lesson length: </label>
           <select
             id="length"
             value={lessonFormData.length}
@@ -83,13 +95,18 @@ export default function Main() {
           placeholder="Enter activities"
           value={lessonFormData.activities}
           onChange={handleChange}
+          name="activities"
         />
         <button className="form__button" onClick={handleSubmit}>
           GENERATE LESSON PLAN
         </button>
       </form>
 
-      <div>{response}</div>
+      { isLoading ? 
+        <div>Loading...</div> :
+        <div>{response}</div>
+      }
+      
     </section>
   );
 }

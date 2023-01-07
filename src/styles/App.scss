@@ -62,15 +62,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h2 {
+    margin-top: 60px;
+  }
 }
 
 /* FORM */
-form > * {
-  font-family: "Karla", sans-serif;
-}
+form {
+  margin-bottom: 30px;
+
+  * {
+    font-family: "Karla", sans-serif;
+  }
+} 
 
 .main__form {
-  border: 1px red solid;
+  // border: 1px red solid;
   width: 80%;
   display: flex;
   flex-direction: column;
