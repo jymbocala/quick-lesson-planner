@@ -62,10 +62,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 60px 0;
 
-  h2 {
-    margin-top: 60px;
-  }
+  // h2 {
+  //   margin-top: 60px;
+  // }
 }
 
 /* FORM */
@@ -145,6 +146,25 @@ textarea {
 .form__button:active {
   box-shadow: inset 5px 5px 10px -3px #532e1c;
 }
+
+/* RESULTS */
+.results {
+  width: 100vw;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8fbff;
+}
+
+.results__render {
+  // border: 1px red solid;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 /* FOOTER */
 .footer {

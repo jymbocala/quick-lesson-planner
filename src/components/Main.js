@@ -1,5 +1,6 @@
 // A react component that inputs a textarea message then performs a fetch request localhost:3001 gets back a response as a data.message and displays that message to a box below.
 import React, { useState } from "react";
+import Results from "./Results"
 
 export default function Main() {
   // Initialize message and response states
@@ -104,7 +105,10 @@ export default function Main() {
 
       { isLoading ? 
         <div>Loading...</div> :
-        <div>{response}</div>
+
+        <Results 
+          response={response}
+        />
       }
       
     </section>

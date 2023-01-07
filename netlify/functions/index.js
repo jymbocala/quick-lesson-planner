@@ -87,8 +87,8 @@ The learning intention of the lesson is to: ${learningIntention}
 ${activities}
 
 Answer:`,
-    max_tokens: 1000,
-    temperature: 0.6,
+    max_tokens: 2000,
+    temperature: 0.75,
   });
   return {
     statusCode: 200,
