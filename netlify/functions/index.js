@@ -28,11 +28,18 @@ exports.handler = async function (event, context) {
       headers,
     };
   }
-  console.log("event console log ",event);
-  const {
-    lessonFormData: { subject, length, topic, learningIntention, activities },
-  } = JSON.parse(event.body);
-  console.log("console logging my variable ", subject, length, topic, learningIntention, activities)
+  console.log("event console log ", event);
+  const { subject, length, topic, learningIntention, activities } = JSON.parse(
+    event.body
+  );
+  console.log(
+    "console logging my variable ",
+    subject,
+    length,
+    topic,
+    learningIntention,
+    activities
+  );
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `Prompt: Can you make me 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
