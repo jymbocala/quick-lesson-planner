@@ -17,6 +17,7 @@ export default function Main() {
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
+    
     console.log("button clicked!");
     setIsLoading(true);
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
@@ -28,8 +29,11 @@ export default function Main() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setResponse(data.message);
+        const adjustedMesssage = data.message.replaceAll('\n', "\n");
+        console.log(adjustedMesssage);
+
+        // setResponse(data.message);
+        setResponse(adjustedMesssage);
         setIsLoading(false);
       });
   }
