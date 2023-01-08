@@ -88,7 +88,7 @@ ${activities}
 
 Answer:`,
     max_tokens: 2000,
-    temperature: 0.75,
+    temperature: 0.85,
   });
   return {
     statusCode: 200,
