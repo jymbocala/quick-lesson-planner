@@ -75,10 +75,18 @@ body {
 /* FORM */
 form {
   padding-bottom: 2.5rem;
+  // text-align: left;
+
 
   * {
     font-family: "Karla", sans-serif;
   }
+}
+
+.form__instruction-text {
+  font-weight: bold;
+  margin-right: auto;
+
 }
 
 .main__form {
@@ -111,7 +119,7 @@ textarea {
   margin-bottom: 15px;
   font-family: "Karla", sans-serif;
   font-size: 0.9rem;
-  text-indent: 10px;
+  padding-left: 1rem;
   border: 1px solid #532e1c8e;
   border-radius: 5px;
   display: block;
