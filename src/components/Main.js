@@ -24,7 +24,7 @@ export default function Main() {
     // Netlify serverless function endpoint
     // dev http://localhost:8888/.netlify/functions/index
     // prod https://quicklessonplanner.netlify.app/.netlify/functions/index
-    fetch("http://localhost:8888/.netlify/functions/index", {
+    fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
