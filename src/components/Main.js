@@ -1,6 +1,5 @@
-// A react component that inputs a textarea message then performs a fetch request localhost:3001 gets back a response as a data.message and displays that message to a box below.
 import React, { useState } from "react";
-import Results from "./Results"
+import Results from "./Results";
 
 export default function Main() {
   // Initialize message and response states
@@ -12,12 +11,13 @@ export default function Main() {
     activities: "",
   });
   const [response, setResponse] = useState("");
+  // isLoading state to help with conditional rendering of a Loading component or the data received from the fetch call
   const [isLoading, setIsLoading] = useState(false);
 
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
-    
+
     console.log("button clicked!");
     setIsLoading(true);
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
@@ -29,10 +29,8 @@ export default function Main() {
     })
       .then((res) => res.json())
       .then((data) => {
-        const adjustedMesssage = data.message.replaceAll('\n', "\n");
-        console.log(adjustedMesssage);
-
-        // setResponse(data.message);
+        // configure data so that "\n" renders as a new line
+        const adjustedMesssage = data.message.replaceAll("\n", "\n");
         setResponse(adjustedMesssage);
         setIsLoading(false);
       });
@@ -40,6 +38,7 @@ export default function Main() {
 
   // Function to handle change in textarea
   function handleChange(e) {
+    // desctructured obj properties needed
     const { name, value, type, checked } = e.target;
     setLessonFormData((prev) => {
       return {
@@ -50,9 +49,21 @@ export default function Main() {
     console.log(lessonFormData);
   }
 
+  //function to either render nothing, a loading component, or the results from the API call.
+  function handleDisplayRender() {
+    if (!isLoading && response === "") {
+      return <></>;
+    } else if (isLoading) {
+      return <div>Loading...</div>; // TODO: create Loading component
+    } else if (!isLoading) {
+      return <Results response={response} />;
+    }
+  }
+
   return (
     <section className="main">
       <h2>Create a Lesson Plan</h2>
+      {/* TODO: add instructions in between the form input */}
       <form className="main__form">
         <input
           type="text"
@@ -107,14 +118,8 @@ export default function Main() {
         </button>
       </form>
 
-      { isLoading ? 
-        <div>Loading...</div> :
-
-        <Results 
-          response={response}
-        />
-      }
-      
+      {/* call handleDisplayRender when app first renders */}
+      {handleDisplayRender()}
     </section>
   );
 }

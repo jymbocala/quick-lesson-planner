@@ -1,5 +1,6 @@
 // An express server,  which will handle api request coming in and respond back with a json object, it will use body parser as well as cors.
 
+// require openai
 const OpenAI = require("openai");
 const { Configuration, OpenAIApi } = OpenAI;
 
@@ -21,6 +22,7 @@ const headers = {
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
 };
 
+// Netlify's serverless function
 exports.handler = async function (event, context) {
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -29,17 +31,19 @@ exports.handler = async function (event, context) {
     };
   }
   console.log("event console log ", event);
+  // Destructured event.body obj for easier referencing inside prompt.
   const { subject, length, topic, learningIntention, activities } = JSON.parse(
     event.body
   );
   console.log(
-    "console logging my variable ",
+    "console logging my variables ",
     subject,
     length,
     topic,
     learningIntention,
     activities
   );
+  // Used prompt engineering to optimize for desired response from OpenAI.
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `Prompt: Can you make me 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
