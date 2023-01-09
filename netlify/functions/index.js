@@ -17,13 +17,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const headers = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": "*", // "wildcard" = any domain calling the endpoint
   "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE", // methods to allow
 };
 
 // Netlify's serverless function
 exports.handler = async function (event, context) {
+  // Checking CORS
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,

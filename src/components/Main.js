@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Results from "./Results";
+import Loader from "./Loader"
 
 export default function Main() {
   // Initialize message and response states
@@ -20,7 +21,10 @@ export default function Main() {
 
     console.log("button clicked!");
     setIsLoading(true);
-    fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
+    // Netlify serverless function endpoint
+    // dev http://localhost:8888/.netlify/functions/index
+    // prod https://quicklessonplanner.netlify.app/.netlify/functions/index
+    fetch("http://localhost:8888/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +34,7 @@ export default function Main() {
       .then((res) => res.json())
       .then((data) => {
         // configure data so that "\n" renders as a new line
-        const adjustedMesssage = data.message.replaceAll("\n", "\n");
+        const adjustedMesssage = data.message;
         setResponse(adjustedMesssage);
         setIsLoading(false);
       });
@@ -51,6 +55,8 @@ export default function Main() {
 
   //function to either render nothing, a loading component, or the results from the API call.
   function handleDisplayRender() {
+
+
     if (!isLoading && response === "") {
       return <></>;
     } else if (isLoading) {
