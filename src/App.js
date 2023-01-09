@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/App.scss";
 import "./styles/queries.scss";
+import "./styles/loader.scss";
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";

@@ -1,14 +1,11 @@
 import React from "react";
 
-export function Loader() {
+export default function Loader() {
   return (
-    <div class="wrapper">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   )
 }

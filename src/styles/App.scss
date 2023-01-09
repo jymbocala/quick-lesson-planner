@@ -1,5 +1,10 @@
 // TODO: add sass variables for primary, secondary, and tertiary colours
 // TODO: separate main and results styles into different files.
+$primary: #c5a880;
+$secondary: #532e1c;
+$light: #f8fbff;
+$dark: #282a37;
+
 * {
   box-sizing: border-box;
 }
@@ -27,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f8fbff;
+  background-color: $light;
 }
 
 .hero {
@@ -42,13 +47,13 @@ body {
 .hero__title {
   margin: 3rem 0 2rem;
   font-weight: 800;
-  color: #532e1c;
+  color: $secondary;
 }
 
 .hero__info {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #202020;
+  color: #282a37;
 }
 
 .hero__img {
@@ -139,11 +144,11 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
   color: black;
-  background-color: #c5a880;
+  background-color: $primary;
 }
 
 .form__button:active {
-  box-shadow: inset 5px 5px 10px -3px #532e1c;
+  box-shadow: inset 5px 5px 10px -3px $secondary;
 }
 
 /* RESULTS */

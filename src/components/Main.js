@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Results from "./Results";
-import Loader from "./Loader"
+import Loader from "./Loader";
 
 export default function Main() {
   // Initialize message and response states
@@ -123,7 +123,9 @@ export default function Main() {
           GENERATE LESSON PLAN
         </button>
       </form>
-
+      <div>
+      <Loader />  
+      </div>
       {/* call handleDisplayRender when app first renders */}
       {handleDisplayRender()}
     </section>
