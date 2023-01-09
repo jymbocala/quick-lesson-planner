@@ -1,5 +1,5 @@
 // TODO: add sass variables for primary, secondary, and tertiary colours
-
+// TODO: separate main and results styles into different files.
 * {
   box-sizing: border-box;
 }
@@ -64,16 +64,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 0;
-
-  // h2 {
-  //   margin-top: 60px;
-  // }
+  padding-top: 2.5rem;
 }
 
 /* FORM */
 form {
-  margin-bottom: 30px;
+  padding-bottom: 2.5rem;
 
   * {
     font-family: "Karla", sans-serif;
@@ -153,6 +149,7 @@ textarea {
 .results {
   width: 100vw;
   min-height: 300px;
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,11 +158,15 @@ textarea {
 
 .results__render {
   // border: 1px red solid;
-  width: 80vw;
+  width: 90vw;
+  border-radius: 9px;
+  padding: 0 1rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   white-space: pre-line;
+  background-color: white;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 /* FOOTER */
@@ -174,7 +175,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  // margin-top: auto;
   width: 100%;
   color: #f8fbff;
   background-color: #202020;
