@@ -46,7 +46,7 @@ body {
 }
 
 .hero__info {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #202020;
 }
@@ -138,6 +138,7 @@ textarea {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: black;
   background-color: #c5a880;
 }
 
@@ -175,7 +176,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  // margin-top: auto;
+  margin-top: auto;
   width: 100%;
   color: #f8fbff;
   background-color: #202020;
