@@ -22,9 +22,9 @@ export default function Main() {
     console.log("button clicked!");
     setIsLoading(true);
     // Netlify serverless function endpoint
-    // dev http://localhost:8888/.netlify/functions/index
+    // dev ttp://localhost:9999/.netlify/functions/index
     // prod https://quicklessonplanner.netlify.app/.netlify/functions/index
-    fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
+    fetch("http://localhost:8888/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,38 +68,43 @@ export default function Main() {
 
   return (
     <section className="main">
-      <h2>Create a Lesson Plan</h2>
-      {/* TODO: add instructions in between the form input */}
+      <div>
+
+      
       <form className="main__form">
+        <h2>Create a Lesson Plan</h2>
         <p className="form__instruction-text">1. Add lesson subject and length.</p>
-        <input
-          type="text"
-          placeholder={`Example: "Business Management"`}
-          onChange={handleChange}
-          name="subject"
-          value={lessonFormData.subject}
-        />
-        {/* TODO: update "length" naming to avoid potential bugs */}
-        <div className="form_length">
-          <label htmlFor="length">Lesson length: </label>
-          <select
-            id="length"
-            value={lessonFormData.length}
+        <div className="form__subject-container">
+          <input
+            type="text"
+            placeholder={`Example: "Business Management"`}
             onChange={handleChange}
-            name="length"
-          >
-            <option value="30">30</option>
-            <option value="35">35</option>
-            <option value="40">40</option>
-            <option value="45">45</option>
-            <option value="50">50</option>
-            <option value="55">55</option>
-            <option value="60">60</option>
-            <option value="65">65</option>
-            <option value="70">70</option>
-          </select>
-          <label>minutes</label>
+            name="subject"
+            value={lessonFormData.subject}
+          />
+          {/* TODO: update "length" naming to avoid potential bugs */}
+          <div className="form_length">
+            {/* <label htmlFor="length">Lesson length: </label> */}
+            <select
+              id="length"
+              value={lessonFormData.length}
+              onChange={handleChange}
+              name="length"
+            >
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+              <option value="55">55</option>
+              <option value="60">60</option>
+              <option value="65">65</option>
+              <option value="70">70</option>
+            </select>
+            <label>minutes</label>
+          </div>
         </div>
+
         <p className="form__instruction-text">2. Add main topic of the lesson and the learning intention.</p>
         <input
           type="text"
@@ -127,9 +132,11 @@ export default function Main() {
           GENERATE LESSON PLAN
         </button>
       </form>
+      <Loader />
 
       {/* call handleDisplayRender when app first renders */}
       {handleDisplayRender()}
+      </div>
     </section>
   );
 }

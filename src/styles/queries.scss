@@ -1,5 +1,5 @@
 $medium: 768px;
-$large: 1200px;
+$large: 1400px;
 
 /* Medium to Large Screens */
 @media screen and (min-width: $medium) {
@@ -35,15 +35,24 @@ $large: 1200px;
 
   form {
     padding-bottom: 4rem;
+    max-width: 800px;
   }
 
-  .form__textarea {
-    width: 400px;
+  .form__subject-container {
+    width: 100%;
+    display: flex;
+  }
+  
+  input[name="subject"] {
+    width: 70%;
+    margin-right: 2rem;
   }
 }
 
 
 /* Larger Screens */
-// @media screen and (min-width: $large) {
-  
-// }
+@media screen and (min-width: $large) {
+  .App {
+    border: 1px red solid;
+  }
+}
