@@ -22,8 +22,6 @@ export default function Main() {
     console.log("button clicked!");
     setIsLoading(true);
     // Netlify serverless function endpoint
-    // dev ttp://localhost:9999/.netlify/functions/index
-    // prod https://quicklessonplanner.netlify.app/.netlify/functions/index
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
@@ -33,9 +31,7 @@ export default function Main() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // configure data so that "\n" renders as a new line
-        const adjustedMesssage = data.message;
-        setResponse(adjustedMesssage);
+        setResponse(data.message);
         setIsLoading(false);
       });
   }
@@ -122,7 +118,7 @@ export default function Main() {
             value={lessonFormData.learningIntention}
           />
           <br />
-          
+
           <p className="form__instruction-text">
             3. Add some ideas/activities for the lesson. The more detail you add
             - the better!
