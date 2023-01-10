@@ -44,6 +44,15 @@ $large: 1400px;
     width: 70%;
     margin-right: 2rem;
   }
+
+  .results {
+    width: 100vw;
+  }
+
+  .results__render {
+    max-width: 700px;
+    padding: 1.5rem 2rem 2rem;
+  }
 }
 
 /* Larger Screens */
@@ -75,6 +84,5 @@ $large: 1400px;
 
   .results__render {
     width: auto;
-    padding: 1.5rem 2rem 2rem;
   }
 }
