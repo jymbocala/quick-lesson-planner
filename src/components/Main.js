@@ -24,7 +24,7 @@ export default function Main() {
     // Netlify serverless function endpoint
     // dev ttp://localhost:9999/.netlify/functions/index
     // prod https://quicklessonplanner.netlify.app/.netlify/functions/index
-    fetch("http://localhost:8888/.netlify/functions/index", {
+    fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,8 +55,6 @@ export default function Main() {
 
   //function to either render nothing, a loading component, or the results from the API call.
   function handleDisplayRender() {
-
-
     if (!isLoading && response === "") {
       return <></>;
     } else if (isLoading) {
@@ -68,74 +66,80 @@ export default function Main() {
 
   return (
     <section className="main">
-      <div>
+      <div className="main-container">
+        <form className="main__form">
+          <h2>Create a Lesson Plan</h2>
 
-      
-      <form className="main__form">
-        <h2>Create a Lesson Plan</h2>
-        <p className="form__instruction-text">1. Add lesson subject and length.</p>
-        <div className="form__subject-container">
+          <p className="form__instruction-text">
+            1. Add lesson subject and length.
+          </p>
+          <div className="form__subject-container">
+            <input
+              type="text"
+              placeholder={`Example: "Business Management"`}
+              onChange={handleChange}
+              name="subject"
+              value={lessonFormData.subject}
+            />
+            
+            <div className="form_length">
+              {/* <label htmlFor="length">Lesson length: </label> */}
+              <select
+                id="length"
+                value={lessonFormData.length}
+                onChange={handleChange}
+                name="length"
+              >
+                <option value="30">30</option>
+                <option value="35">35</option>
+                <option value="40">40</option>
+                <option value="45">45</option>
+                <option value="50">50</option>
+                <option value="55">55</option>
+                <option value="60">60</option>
+                <option value="65">65</option>
+                <option value="70">70</option>
+              </select>
+              <label>minutes</label>
+            </div>
+          </div>
+
+          <p className="form__instruction-text">
+            2. Add main topic of the lesson and the learning intention.
+          </p>
           <input
             type="text"
-            placeholder={`Example: "Business Management"`}
+            placeholder={`Lesson Topic example: "Motivational Theories"`}
             onChange={handleChange}
-            name="subject"
-            value={lessonFormData.subject}
+            name="topic"
+            value={lessonFormData.topic}
           />
-          {/* TODO: update "length" naming to avoid potential bugs */}
-          <div className="form_length">
-            {/* <label htmlFor="length">Lesson length: </label> */}
-            <select
-              id="length"
-              value={lessonFormData.length}
-              onChange={handleChange}
-              name="length"
-            >
-              <option value="30">30</option>
-              <option value="35">35</option>
-              <option value="40">40</option>
-              <option value="45">45</option>
-              <option value="50">50</option>
-              <option value="55">55</option>
-              <option value="60">60</option>
-              <option value="65">65</option>
-              <option value="70">70</option>
-            </select>
-            <label>minutes</label>
-          </div>
-        </div>
+          <input
+            type="text"
+            placeholder={`Lesson Intention example: "Analyse how Maslow's Hierarchy of Needs can be used to motivate employees."`}
+            onChange={handleChange}
+            name="learningIntention"
+            value={lessonFormData.learningIntention}
+          />
+          <br />
+          
+          <p className="form__instruction-text">
+            3. Add some ideas/activities for the lesson. The more detail you add
+            - the better!
+          </p>
+          <textarea
+            placeholder={`Example (feel free to add dot points!): \n - 5-minute video to introduce the topic. \n - Research task where students work in pairs. \n - Discussion`}
+            value={lessonFormData.activities}
+            onChange={handleChange}
+            name="activities"
+          />
+          <button className="form__button" onClick={handleSubmit}>
+            GENERATE LESSON PLAN
+          </button>
+        </form>
 
-        <p className="form__instruction-text">2. Add main topic of the lesson and the learning intention.</p>
-        <input
-          type="text"
-          placeholder={`Lesson Topic example: "Motivational Theories"`}
-          onChange={handleChange}
-          name="topic"
-          value={lessonFormData.topic}
-        />
-        <input
-          type="text"
-          placeholder={`Lesson Intention example: "Analyse how Maslow's Hierarchy of Needs can be used to motivate employees."`}
-          onChange={handleChange}
-          name="learningIntention"
-          value={lessonFormData.learningIntention}
-        />
-        <br />
-        <p className="form__instruction-text">3. Add some ideas/activities for the lesson. The more detail you add - the better!</p>
-        <textarea
-          placeholder={`Example (feel free to add dot points!): \n - 5-minute video to introduce the topic. \n - Research task where students work in pairs. \n - Discussion`}
-          value={lessonFormData.activities}
-          onChange={handleChange}
-          name="activities"
-        />
-        <button className="form__button" onClick={handleSubmit}>
-          GENERATE LESSON PLAN
-        </button>
-      </form>
-      <Loader />
-
-      {/* call handleDisplayRender when app first renders */}
-      {handleDisplayRender()}
+        {/* call handleDisplayRender when app first renders */}
+        {handleDisplayRender()}
       </div>
     </section>
   );

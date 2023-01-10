@@ -5,14 +5,12 @@ $large: 1400px;
 @media screen and (min-width: $medium) {
   /* HEADER */
   .hero {
-    // border: 1px red solid;
     max-width: 1200px;
     flex-direction: row-reverse;
     padding: 8rem 2rem;
   }
 
   .hero__text-group {
-    // border: 1px red solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +18,6 @@ $large: 1400px;
   }
 
   .hero__img {
-    // border: 1px red solid;
     width: 40%;
   }
 
@@ -42,17 +39,42 @@ $large: 1400px;
     width: 100%;
     display: flex;
   }
-  
+
   input[name="subject"] {
     width: 70%;
     margin-right: 2rem;
   }
 }
 
-
 /* Larger Screens */
 @media screen and (min-width: $large) {
-  .App {
-    border: 1px red solid;
+  .main-container {
+    max-width: 1800px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+  }
+
+  form {
+    padding-bottom: 4rem;
+    max-width: 800px;
+  }
+
+  .loading {
+    width: 800px;
+  }
+
+  /* RESULTS */
+  .results {
+    max-width: 800px;
+    background-color: white;
+  }
+
+  .results__render {
+    width: auto;
+    padding: 1.5rem 2rem 2rem;
   }
 }
