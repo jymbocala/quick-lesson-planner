@@ -122,7 +122,12 @@ textarea {
   width: 100%;
 }
 
-.form_length {
+input[name="subject"] {
+  width: 100%;
+  margin-right: 2rem;
+}
+
+.form_length, .form_level {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,7 +135,7 @@ textarea {
   height: 2rem;
 
   select {
-    margin-right: 3px;
+    margin-left: 5px;
     height: 1.8rem;
     border-radius: 5px;
   }

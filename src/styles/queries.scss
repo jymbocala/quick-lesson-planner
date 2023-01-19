@@ -38,12 +38,18 @@ $large: 1400px;
   .form__subject-container {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+
+    input[name="subject"] {
+      width: 55%;
+    }
+  
+    .form_level {
+      margin-right: 1rem;
+    }
   }
 
-  input[name="subject"] {
-    width: 70%;
-    margin-right: 2rem;
-  }
+  
 
   .results {
     width: 100vw;
