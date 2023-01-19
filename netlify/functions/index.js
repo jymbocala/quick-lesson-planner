@@ -33,12 +33,13 @@ exports.handler = async function (event, context) {
   }
   console.log("event console log ", event);
   // Destructured event.body obj for easier referencing inside prompt.
-  const { subject, length, topic, learningIntention, activities } = JSON.parse(
+  const { subject,level, length, topic, learningIntention, activities } = JSON.parse(
     event.body
   );
   console.log(
     "console logging my variables ",
     subject,
+    level,
     length,
     topic,
     learningIntention,
@@ -47,7 +48,7 @@ exports.handler = async function (event, context) {
   // Used prompt engineering to optimize for desired response from OpenAI.
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Prompt: Can you make me 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
+    prompt: `Prompt: Can you make me a one-page, 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
 Lesson Context/ Topic: Romeo and Juliet
 The learning intention of the lesson is to: analyse the consequence of bad decision-making.
 1. Intro Discussion
@@ -86,7 +87,7 @@ Class Discussion (10 minutes):
 Exit Ticket (5 minutes): 
 - Based on the ideas in Romeo and Juliet, how do bad decisions create damage in families and communities?
     
-Prompt: Can you make me ${length} minutes lesson plan for a Year 11 (students aged 15-17) ${subject} class including these ideas/activities:
+Prompt: Can you make me ${length} minutes lesson plan for a ${level} ${subject} class including these ideas/activities:
 Lesson Context/ Topic: ${topic}
 The learning intention of the lesson is to: ${learningIntention}
 ${activities}
