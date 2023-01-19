@@ -16,6 +16,8 @@ export default function Main() {
   // isLoading state to help with conditional rendering of a Loading component or the data received from the fetch call
   const [isLoading, setIsLoading] = useState(false);
 
+  const buttonText = response === "" ? "GENERATE LESSON PLAN" : "REGENERATE LESSON PLAN"
+
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
@@ -80,7 +82,7 @@ export default function Main() {
             />
 
             <div className="form_level">
-              <label>Level: </label>
+              <label htmlFor="level">Level: </label>
               <select
                 id="level"
                 value={lessonFormData.level}
@@ -104,7 +106,7 @@ export default function Main() {
             
             <div className="form_length">
               {/* <label htmlFor="length">Lesson length: </label> */}
-              <label>Length: </label>
+              <label htmlFor="length">Length: </label>
               <select
                 id="length"
                 value={lessonFormData.length}
@@ -155,7 +157,7 @@ export default function Main() {
             name="activities"
           />
           <button className="form__button" onClick={handleSubmit}>
-            GENERATE LESSON PLAN
+            {buttonText}
           </button>
         </form>
 
