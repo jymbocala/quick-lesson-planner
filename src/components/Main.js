@@ -7,7 +7,7 @@ export default function Main() {
   const [lessonFormData, setLessonFormData] = useState({
     subject: "",
     level: "Year 10 (students aged 15 to 16)",
-    length: 50,
+    lessonLength: 50,
     topic: "",
     learningIntention: "",
     activities: "",
@@ -105,13 +105,12 @@ export default function Main() {
             </div>
             
             <div className="form_length">
-              {/* <label htmlFor="length">Lesson length: </label> */}
-              <label htmlFor="length">Length: </label>
+              <label htmlFor="lessonLength">Length: </label>
               <select
-                id="length"
-                value={lessonFormData.length}
+                id="lessonLength"
+                value={lessonFormData.lessonLength}
                 onChange={handleChange}
-                name="length"
+                name="lessonLength"
               >
                 <option value="30">30 min.</option>
                 <option value="35">35 min.</option>

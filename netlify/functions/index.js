@@ -33,14 +33,14 @@ exports.handler = async function (event, context) {
   }
   console.log("event console log ", event);
   // Destructured event.body obj for easier referencing inside prompt.
-  const { subject,level, length, topic, learningIntention, activities } = JSON.parse(
+  const { subject, level, lessonLength, topic, learningIntention, activities } = JSON.parse(
     event.body
   );
   console.log(
     "console logging my variables ",
     subject,
     level,
-    length,
+    lessonLength,
     topic,
     learningIntention,
     activities
@@ -87,7 +87,7 @@ Class Discussion (10 minutes):
 Exit Ticket (5 minutes): 
 - Based on the ideas in Romeo and Juliet, how do bad decisions create damage in families and communities?
     
-Prompt: Can you make me ${length} minutes lesson plan for a ${level} ${subject} class including these ideas/activities:
+Prompt: Can you make me ${lessonLength} minutes lesson plan for a ${level} ${subject} class including these ideas/activities:
 Lesson Context/ Topic: ${topic}
 The learning intention of the lesson is to: ${learningIntention}
 ${activities}
