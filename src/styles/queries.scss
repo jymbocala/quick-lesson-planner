@@ -7,15 +7,11 @@ $large: 1400px;
 @media screen and (min-width: $medium) {
   /* === HEADER === */
   .hero {
-    // border: 2px red solid;
     max-width: 1200px;
     display: flex;
     flex-direction: row-reverse;
-    // align-items: center;
     justify-content: center;
-    // flex-wrap: wrap;
     padding: 8rem 2rem;
-    // margin: 0;
   }
 
   .hero__text-group {
@@ -23,8 +19,16 @@ $large: 1400px;
     flex-direction: column;
     align-items: center;
     width: 50%;
-  }
 
+    .hero__title {
+      font-size: 4rem;
+    }
+
+    .hero__info {
+      font-size: 1.5rem;
+    }
+  }
+  
   .hero__img {
     width: 30%;
   }
