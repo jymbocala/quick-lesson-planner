@@ -1,6 +1,4 @@
-$dark: #282a37;
-$primary: #c5a880;
-$secondary: #532e1c;
+@use "base";
 
 /* === LOADER ANIMATIONS === */
 /* appear is when the component mounts */
@@ -32,7 +30,7 @@ $secondary: #532e1c;
     width: 1rem;
     height: 1rem;
     margin: 2rem 0.3rem;
-    background: $secondary;
+    background: base.$secondary;
     border-radius: 50%;
     animation: 0.9s bounce infinite alternate;
 

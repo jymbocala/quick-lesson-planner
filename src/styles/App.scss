@@ -1,16 +1,4 @@
-$primary: #c5a880;
-$secondary: #532e1c;
-$light: #f8fbff;
-$dark: #282a37;
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Karla", sans-serif;
-}
+@use "base";
 
 .App {
   display: flex;
@@ -18,41 +6,6 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: white;
-}
-
-/* === HEADER === */
-.header {
-  width: 100%;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $light;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 1.5rem;
-  text-align: center;
-}
-
-.hero__title {
-  margin: 3rem 0 2rem;
-  font-weight: 800;
-  font-size: 2.5rem;
-  color: $secondary;
-}
-
-.hero__info {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #282a37;
-}
-
-.hero__img {
-  max-width: 80%;
 }
 
 /* === MAIN === */
@@ -156,11 +109,11 @@ textarea:focus, input:focus {
   border-radius: 9px;
   cursor: pointer;
   color: black;
-  background-color: $primary;
+  background-color: base.$primary;
 }
 
 .form__button:active {
-  box-shadow: inset 5px 5px 10px -3px $secondary;
+  box-shadow: inset 5px 5px 10px -3px base.$secondary;
 }
 
 /* === RESULTS === */
@@ -196,24 +149,4 @@ textarea:focus, input:focus {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 1000ms, transform 1000ms;
-}
-
-/* === FOOTER === */
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto;
-  width: 100%;
-  color: #f8fbff;
-  background-color: #202020;
-}
-
-.footer__link {
-  color: #f8fbff;
-}
-
-.footer--link:hover {
-  text-decoration: none;
-  font-weight: bold;
 }

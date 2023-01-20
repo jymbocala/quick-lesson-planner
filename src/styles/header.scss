@@ -1,0 +1,36 @@
+@use "base";
+
+/* === HEADER === */
+.header {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: base.$light;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 3rem 0 2rem;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: base.$secondary;
+}
+
+.hero__info {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: base.$dark;
+}
+
+.hero__img {
+  max-width: 80%;
+}
