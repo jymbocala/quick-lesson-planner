@@ -5,14 +5,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  margin-top: 5rem;
   width: 100%;
-  color: #f8fbff;
-  background-color: #202020;
+  color: base.$light;
+  background-color: rgb(18, 21, 18);
 }
 
 .footer__link {
-  color: #f8fbff;
+  color: base.$light;
 }
 
 .footer--link:hover {

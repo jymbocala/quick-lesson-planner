@@ -7,19 +7,24 @@ $large: 1400px;
   .hero {
     // border: 2px red solid;
     max-width: 1200px;
+    display: flex;
     flex-direction: row-reverse;
+    // align-items: center;
+    justify-content: center;
+    // flex-wrap: wrap;
     padding: 8rem 2rem;
+    // margin: 0;
   }
 
   .hero__text-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: 50%;
   }
 
   .hero__img {
-    width: 40%;
+    width: 30%;
   }
 
   .hero__info {
@@ -62,6 +67,10 @@ $large: 1400px;
 
 /* === LARGE SCREENS === */
 @media screen and (min-width: $large) {
+  /* === HEADER === */
+  .hero__img {
+    width: 35%;
+  }
   /* === MAIN === */
   .main-container {
     max-width: 1800px;

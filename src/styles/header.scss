@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: base.$light;
+  background-color: base.$secondary;
 }
 
 .hero {
@@ -22,15 +22,15 @@
   margin: 3rem 0 2rem;
   font-weight: 800;
   font-size: 2.5rem;
-  color: base.$secondary;
-}
-
-.hero__info {
-  font-size: 1.5rem;
-  font-weight: 500;
   color: base.$dark;
 }
 
+.hero__info {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: base.$light;
+}
+
 .hero__img {
-  max-width: 80%;
+  max-width: 70%;
 }
