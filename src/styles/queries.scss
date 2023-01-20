@@ -5,7 +5,7 @@ $large: 1400px;
 @media screen and (min-width: $medium) {
   /* === HEADER === */
   .hero {
-    border: 2px red solid;
+    // border: 2px red solid;
     max-width: 1200px;
     flex-direction: row-reverse;
     padding: 8rem 2rem;
