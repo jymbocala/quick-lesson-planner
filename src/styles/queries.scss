@@ -1,3 +1,5 @@
+@use "base";
+
 $medium: 768px;
 $large: 1400px;
 
@@ -94,7 +96,7 @@ $large: 1400px;
   /* === RESULTS === */
   .results {
     max-width: 800px;
-    background-color: white;
+    background-color: base.$tertiary;
   }
 
   .results__render {
