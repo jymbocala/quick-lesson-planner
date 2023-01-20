@@ -1,9 +1,9 @@
 $medium: 768px;
 $large: 1400px;
 
-/* Medium to Large Screens */
+/* === MEDIUM SCREENS === */
 @media screen and (min-width: $medium) {
-  /* HEADER */
+  /* === HEADER === */
   .hero {
     max-width: 1200px;
     flex-direction: row-reverse;
@@ -25,7 +25,7 @@ $large: 1400px;
     max-width: 80%;
   }
 
-  /* MAIN */
+  /* === MAIN === */
   .main {
     padding-top: 4rem;
   }
@@ -49,8 +49,6 @@ $large: 1400px;
     }
   }
 
-  
-
   .results {
     width: 100vw;
   }
@@ -61,8 +59,9 @@ $large: 1400px;
   }
 }
 
-/* Larger Screens */
+/* === LARGE SCREENS === */
 @media screen and (min-width: $large) {
+  /* === MAIN === */
   .main-container {
     max-width: 1800px;
     padding: 0 2rem;
@@ -82,7 +81,7 @@ $large: 1400px;
     width: 800px;
   }
 
-  /* RESULTS */
+  /* === RESULTS === */
   .results {
     max-width: 800px;
     background-color: white;

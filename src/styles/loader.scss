@@ -3,6 +3,7 @@ $primary: #c5a880;
 $secondary: #532e1c;
 
 /* === LOADER ANIMATIONS === */
+/* appear is when the component mounts */
 .load-appear {
   opacity: 0;
   transform: scale(0.2);
@@ -20,10 +21,6 @@ $secondary: #532e1c;
   opacity: 0;
   transform: scale(0.2);
   transition: opacity 1000ms, transform 1000ms;
-}
-
-.load-exit-done {
-  opacity: 0;
 }
 
 /* === LOADER ELEMENTS === */

@@ -1,14 +1,24 @@
-import React, {useState} from "react"
+import React, { useState, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 
 export default function Results(props) {
-  const [lessonPlanText] = useState(props.response)
+  const [lessonPlanText] = useState(props.response);
+  const isGenerated = props.response === "" ? false : true
+  const nodeRef = useRef(null);
 
   return (
-    <section className="results">
-      <div className="results__render">
-        <h2>Lesson Plan</h2>
-        <p>{lessonPlanText}</p>
-      </div>
-    </section>
-  )
+    <CSSTransition
+      in={isGenerated}
+      timeout={3000}
+      classNames="animate-results"
+      appear={true}
+    >
+      <section className="results" ref={nodeRef}>
+        <div className="results__render">
+          <h2>Lesson Plan</h2>
+          <p>{lessonPlanText}</p>
+        </div>
+      </section>
+    </CSSTransition>
+  );
 }

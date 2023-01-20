@@ -19,8 +19,8 @@ export default function Main() {
 
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
-    e.preventDefault(); // this stops refreshing the page when button is clicked
-    console.log("button clicked!");
+    e.preventDefault(); // this stops refreshing the page when clicked
+    // console.log("button clicked!");
     setIsLoading(true);
     // Netlify serverless function endpoint
     fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
