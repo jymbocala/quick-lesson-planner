@@ -3,7 +3,6 @@ import Results from "./Results";
 import Loader from "./Loader";
 
 export default function Main() {
-  // Initialize message and response states
   const [lessonFormData, setLessonFormData] = useState({
     subject: "",
     level: "Year 10 (students aged 15 to 16)",
@@ -21,7 +20,6 @@ export default function Main() {
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
     e.preventDefault(); // this stops refreshing the page when button is clicked
-
     console.log("button clicked!");
     setIsLoading(true);
     // Netlify serverless function endpoint
@@ -57,7 +55,7 @@ export default function Main() {
     if (!isLoading && response === "") {
       return <></>;
     } else if (isLoading) {
-      return <Loader />;
+      return <Loader isLoading={isLoading}/>;
     } else if (!isLoading) {
       return <Results response={response} />;
     }

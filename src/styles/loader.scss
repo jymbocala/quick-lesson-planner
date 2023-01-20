@@ -2,6 +2,31 @@ $dark: #282a37;
 $primary: #c5a880;
 $secondary: #532e1c;
 
+/* === LOADER ANIMATIONS === */
+.load-appear {
+  opacity: 0;
+  transform: scale(0.2);
+}
+.load-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1000ms, transform 1000ms;
+}
+
+.load-exit {
+  opacity: 1;
+}
+.load-exit-active {
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 1000ms, transform 1000ms;
+}
+
+.load-exit-done {
+  opacity: 0;
+}
+
+/* === LOADER ELEMENTS === */
 .loading {
   display: flex;
   justify-content: center;

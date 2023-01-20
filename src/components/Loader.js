@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 
-export default function Loader() {
+export default function Loader(props) {
+  const nodeRef = useRef(null);
+
   return (
-    <div class="loading">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  )
+    <CSSTransition
+      in={props.isLoading}
+      nodeRef={nodeRef}
+      timeout={3000}
+      classNames="load"
+      appear={true}      
+    >
+      <div className="loading" ref={nodeRef}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </CSSTransition>
+  );
 }
