@@ -4,6 +4,12 @@ import { CSSTransition } from "react-transition-group";
 export default function Loader(props) {
   const nodeRef = useRef(null);
 
+  const longLoadingTextDisplay = () => {
+    console.log("Load took too long");
+  }
+
+  setTimeout(longLoadingTextDisplay, 15000);
+
   return (
     <CSSTransition
       in={props.isLoading}
