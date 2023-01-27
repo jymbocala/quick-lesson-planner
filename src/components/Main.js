@@ -26,7 +26,7 @@ export default function Main() {
     // old
     // fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
     // linking to backend site
-    fetch("https://venerable-mermaid-375f96.netlify.app/.netlify/functions/index", {
+    fetch("https://venerable-mermaid-375f96.netlify.app/netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

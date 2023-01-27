@@ -1,5 +1,3 @@
-// An express server,  which will handle api request coming in and respond back with a json object, it will use body parser as well as cors.
-
 // require openai
 const OpenAI = require("openai");
 const { Configuration, OpenAIApi } = OpenAI;
