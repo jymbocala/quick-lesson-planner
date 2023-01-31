@@ -4,6 +4,8 @@
 </div>
 
 ## [Live Site 🔗](https://quicklessonplanner.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/716bb22f-4c41-4eb3-8059-93bb4cf387d9/deploy-status)](https://app.netlify.com/sites/quicklessonplanner/deploys)
+
 
 ## Table of Contents
 
