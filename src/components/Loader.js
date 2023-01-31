@@ -8,7 +8,7 @@ export default function Loader(props) {
     console.log("Load took too long");
   }
 
-  setTimeout(longLoadingTextDisplay, 15000);
+  setTimeout(longLoadingTextDisplay, 8000);
 
   return (
     <CSSTransition
