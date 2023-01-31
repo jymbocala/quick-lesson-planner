@@ -23,9 +23,6 @@ export default function Main() {
     // console.log("button clicked!");
     setIsLoading(true);
     // Netlify serverless function endpoint
-    // old
-    // fetch("https://quicklessonplanner.netlify.app/.netlify/functions/index", {
-    // linking to backend site
     fetch("https://venerable-mermaid-375f96.netlify.app/.netlify/functions/index", {
       method: "POST",
       headers: {
