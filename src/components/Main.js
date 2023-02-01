@@ -22,7 +22,7 @@ export default function Main() {
     e.preventDefault(); // this stops refreshing the page when clicked
     setIsLoading(true);
     // Netlify serverless function endpoint
-    fetch("https://venerable-mermaid-375f96.netlify.app/.netlify/functions/index", {
+    fetch("https://quicklessonplanner.com/.netlify/functions/index", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
