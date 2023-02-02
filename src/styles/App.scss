@@ -119,12 +119,13 @@ textarea:focus, input:focus {
 
 /* === RESULTS === */
 .results {
-  width: 100vw;
-  min-height: 300px;
+  max-width: 100%;
+  min-height: 400px;
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: base.$tertiary;
 }
 
