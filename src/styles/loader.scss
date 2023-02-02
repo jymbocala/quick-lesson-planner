@@ -21,8 +21,39 @@
   transition: opacity 1000ms, transform 1000ms;
 }
 
-/* === LOADER ELEMENTS === */
-.loading {
+/* === LOADER === */
+.loader {
+  padding: 5rem 2rem;
+}
+
+.loader__error-cont {
+  max-width: 20rem;
+  max-height: 350px;
+  border-radius: 9px;
+  margin-bottom: 3rem;
+  padding: 1.5rem 0.8rem;
+  text-align: center;
+  line-height: 1.4rem;
+  background: #FF7272;
+  position: relative;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.loader__error-cont:before {
+  content: "";
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-left: 26px solid #FF7272;
+  border-bottom: 13px solid transparent;
+}
+
+.loader__load-animation {
   display: flex;
   justify-content: center;
 
