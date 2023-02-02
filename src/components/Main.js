@@ -54,7 +54,7 @@ export default function Main() {
     if (!isLoading && response === "") {
       return <></>;
     } else if (isLoading) {
-      return <Loader isLoading={isLoading}/>;
+      return <Loader isLoading={isLoading} response={response}/>;
     } else if (!isLoading) {
       return <Results response={response} />;
     }
