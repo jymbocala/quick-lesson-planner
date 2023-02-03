@@ -3,6 +3,8 @@ import { CSSTransition } from "react-transition-group";
 
 export default function Results(props) {
   const [lessonPlanText] = useState(props.response);
+  console.log("generated lesson plan text", lessonPlanText);
+
   const isGenerated = props.response === "" ? false : true
   const nodeRef = useRef(null);
 

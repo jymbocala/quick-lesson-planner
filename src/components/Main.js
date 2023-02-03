@@ -15,7 +15,8 @@ export default function Main() {
   // isLoading state to help with conditional rendering of a Loading component or the data received from the fetch call
   const [isLoading, setIsLoading] = useState(false);
 
-  const buttonText = response === "" ? "GENERATE LESSON PLAN" : "REGENERATE LESSON PLAN"
+  const buttonText =
+    response === "" ? "GENERATE LESSON PLAN" : "REGENERATE LESSON PLAN";
 
   // Function to call a fetch request when Submit button is clicked
   function handleSubmit(e) {
@@ -32,6 +33,7 @@ export default function Main() {
       .then((res) => res.json())
       .then((data) => {
         setResponse(data.message);
+        console.log("data.message from fetch call", data.message)
         setIsLoading(false);
       });
   }
@@ -54,7 +56,7 @@ export default function Main() {
     if (!isLoading && response === "") {
       return <></>;
     } else if (isLoading) {
-      return <Loader isLoading={isLoading} response={response}/>;
+      return <Loader isLoading={isLoading} response={response} />;
     } else if (!isLoading) {
       return <Results response={response} />;
     }
@@ -90,17 +92,27 @@ export default function Main() {
                 <option value="Grade 2 (students aged 7 to 8)">Grade 2</option>
                 <option value="Grade 3 (students aged 8 to 9)">Grade 3</option>
                 <option value="Grade 4 (students aged 9 to 10)">Grade 4</option>
-                <option value="Grade 5 (students aged 10 to 11)">Grade 5</option>
-                <option value="Grade 6 (students aged 11 to 12)">Grade 6</option>
+                <option value="Grade 5 (students aged 10 to 11)">
+                  Grade 5
+                </option>
+                <option value="Grade 6 (students aged 11 to 12)">
+                  Grade 6
+                </option>
                 <option value="Year 7 (students aged 12 to 13)">Year 7</option>
                 <option value="Year 8 (students aged 13 to 14)">Year 8</option>
                 <option value="Year 9 (students aged 14 to 15)">Year 9</option>
-                <option value="Year 10 (students aged 15 to 16)">Year 10</option>
-                <option value="Year 11 (students aged 16 to 17)">Year 11</option>
-                <option value="Year 12 (students aged 17 to 18)">Year 12</option>
+                <option value="Year 10 (students aged 15 to 16)">
+                  Year 10
+                </option>
+                <option value="Year 11 (students aged 16 to 17)">
+                  Year 11
+                </option>
+                <option value="Year 12 (students aged 17 to 18)">
+                  Year 12
+                </option>
               </select>
             </div>
-            
+
             <div className="form_length">
               <label htmlFor="lessonLength">Length: </label>
               <select
@@ -119,7 +131,6 @@ export default function Main() {
                 <option value="65">65 min.</option>
                 <option value="70">70 min.</option>
               </select>
-              
             </div>
           </div>
 
