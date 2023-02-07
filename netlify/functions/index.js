@@ -30,6 +30,7 @@ exports.handler = async function (event, context) {
     };
   }
   console.log("event console log ", event);
+
   // Destructured event.body obj for easier referencing inside prompt.
   const { subject, level, lessonLength, topic, learningIntention, activities } =
     JSON.parse(event.body);
@@ -42,6 +43,7 @@ exports.handler = async function (event, context) {
     learningIntention,
     activities
   );
+
   // Used prompt engineering to optimize for desired response from OpenAI.
   const response = await openai.createCompletion({
     model: "text-davinci-003",
@@ -93,6 +95,8 @@ Answer:`,
     max_tokens: 2000,
     temperature: 0.85,
   });
+  
+  console.log("The full response object: ", response);
   return {
     statusCode: 200,
     // body: JSON.stringify({ message: response.data?.choices[0]?.text }),
@@ -100,4 +104,3 @@ Answer:`,
     headers,
   };
 };
-console.log("The full response object: ", response);
