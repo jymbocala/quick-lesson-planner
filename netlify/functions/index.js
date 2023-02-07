@@ -93,7 +93,6 @@ Answer:`,
     max_tokens: 2000,
     temperature: 0.85,
   });
-  console.log("The full response object: ", response);
   return {
     statusCode: 200,
     // body: JSON.stringify({ message: response.data?.choices[0]?.text }),
@@ -101,3 +100,4 @@ Answer:`,
     headers,
   };
 };
+console.log("The full response object: ", response);
