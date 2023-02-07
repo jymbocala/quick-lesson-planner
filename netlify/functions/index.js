@@ -31,9 +31,8 @@ exports.handler = async function (event, context) {
   }
   console.log("event console log ", event);
   // Destructured event.body obj for easier referencing inside prompt.
-  const { subject, level, lessonLength, topic, learningIntention, activities } = JSON.parse(
-    event.body
-  );
+  const { subject, level, lessonLength, topic, learningIntention, activities } =
+    JSON.parse(event.body);
   console.log(
     "console logging my variables ",
     subject,
@@ -97,7 +96,8 @@ Answer:`,
   console.log("The full response object: ", response);
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: response.data?.choices[0]?.text }),
+    // body: JSON.stringify({ message: response.data?.choices[0]?.text }),
+    body: JSON.stringify({ message: response.data }),
     headers,
   };
 };
