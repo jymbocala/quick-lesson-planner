@@ -46,7 +46,7 @@ exports.handler = async function (event, context) {
   // Used prompt engineering to optimize for desired response from OpenAI.
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `Prompt: Can you make me a one-page, 50 minutes lesson plan for a Year 10 (students aged 14-16)English class including these ideas/activities:
+    prompt: `Prompt: Can you make me a one-page, 50 minutes lesson plan for a Year 10 (students aged 14-16) English class including these ideas/activities:
 Lesson Context/ Topic: Romeo and Juliet
 The learning intention of the lesson is to: analyse the consequence of bad decision-making.
 1. Intro Discussion
@@ -94,7 +94,7 @@ Answer:`,
     max_tokens: 2000,
     temperature: 0.85,
   });
-  console.log("RESPONSE",response);
+  console.log("The full response object: ", response);
   return {
     statusCode: 200,
     body: JSON.stringify({ message: response.data?.choices[0]?.text }),
