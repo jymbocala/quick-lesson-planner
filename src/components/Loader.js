@@ -7,13 +7,19 @@ export default function Loader(props) {
 
   function handleExtendedLoading() {
     if (props.response === "") {
-      setIsLoadingExtended(true)
+      setIsLoadingExtended(true);
     } else {
-      setIsLoadingExtended(false)
+      setIsLoadingExtended(false);
     }
   }
-  
-  setTimeout(handleExtendedLoading, 10000);
+
+  // this useEffect runs when component is mounted. After 10 seconds, it will run handExtendedLoading. However, if the component is unmounted, then the return function will clear the setTimeout.
+  useEffect(() => {
+    const timeoutId = setTimeout(handleExtendedLoading, 10000);
+    return () => {
+      clearInterval(timeoutId);
+    };
+  }, []);
 
   return (
     <CSSTransition
