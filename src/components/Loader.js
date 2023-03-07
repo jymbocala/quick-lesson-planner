@@ -14,11 +14,12 @@ export default function Loader(props) {
         setIsLoadingExtended(false);
       }
     }
+
     const timeoutId = setTimeout(handleExtendedLoading, 10000);
     return () => {
       clearInterval(timeoutId);
     };
-  }, []);
+  }, [props.response]);
 
   return (
     <CSSTransition
