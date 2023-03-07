@@ -1,20 +1,19 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 
 export default function Loader(props) {
   const nodeRef = useRef(null);
   const [isLoadingExtended, setIsLoadingExtended] = useState(false);
 
-  function handleExtendedLoading() {
-    if (props.response === "") {
-      setIsLoadingExtended(true);
-    } else {
-      setIsLoadingExtended(false);
-    }
-  }
-
   // this useEffect runs when component is mounted. After 10 seconds, it will run handExtendedLoading. However, if the component is unmounted, then the return function will clear the setTimeout.
   useEffect(() => {
+    const handleExtendedLoading = () => {
+      if (props.response === "") {
+        setIsLoadingExtended(true);
+      } else {
+        setIsLoadingExtended(false);
+      }
+    }
     const timeoutId = setTimeout(handleExtendedLoading, 10000);
     return () => {
       clearInterval(timeoutId);
