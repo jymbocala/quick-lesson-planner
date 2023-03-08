@@ -29,7 +29,7 @@ exports.handler = async function (event, context) {
       headers,
     };
   }
-  console.log("event console log ", event);
+  console.log("event console log: ", event);
 
   try {
     // Destructured event.body obj for easier referencing inside prompt.
@@ -51,37 +51,30 @@ exports.handler = async function (event, context) {
       activities
     );
 
-    // Used prompt engineering to optimize for desired response from OpenAI.
-    //     const response = await openai.createCompletion({
-    //       model: "text-davinci-003",
-    //       prompt: `Prompt: Can you make me a ${lessonLength}-minute lesson plan for a ${level} ${subject} class with a lesson topic of ${topic}. Can you add engaging activities appropriate for the level of the students.
-
-    // Answer:`,
-    //       max_tokens: 2048,
-    //       temperature: 0.80,
-    //     });
-
     // OpenAI Chat completion request
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        { 
-          role: "system", 
-          content: `You are an expert Highschool Teacher that is about to teach a ${subject} class.` 
+        {
+          role: "system",
+          content: `You are an expert Highschool Teacher that is about to teach a ${subject} class.`,
         },
-        { 
-          role: "user", 
-          content: `Create a lesson plan for a ${subject} lesson I have with the main topic as ${topic}. The lesson is ${lessonLength} minutes long, include time durations for each activity. Include fun and engaging activities throughout the lesson.` 
-        }
+        {
+          role: "user",
+          content: `Create a lesson plan for a ${subject} lesson I have with the main topic as ${topic}. The lesson is ${lessonLength} minutes long, include time durations for each activity. Include fun and engaging activities throughout the lesson.`,
+        },
       ],
       max_tokens: 2048,
       temperature: 0.8,
     });
 
-    console.log("response-data-choices-message: ", response.data.choices[0].message);
+    console.log("full response data: ", response.data);
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: response.data?.choices[0]?.message.content }),
+      body: JSON.stringify({
+        message: response.data?.choices[0]?.message.content,
+      }),
       headers,
     };
   } catch (error) {
