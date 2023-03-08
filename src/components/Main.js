@@ -33,7 +33,7 @@ export default function Main() {
       .then((res) => res.json())
       .then((data) => {
         setResponse(data.message);
-        console.log("data.message from fetch call", data.message)
+        console.log("data.message from fetch call", data.message);
         setIsLoading(false);
       });
   }

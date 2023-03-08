@@ -8,7 +8,6 @@ import "./styles/loader.scss";
 import "./styles/footer.scss";
 import "./styles/queries.scss";
 
-
 function App() {
   return (
     <div className="App">

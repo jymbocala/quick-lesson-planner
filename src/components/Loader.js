@@ -13,7 +13,7 @@ export default function Loader(props) {
       } else {
         setIsLoadingExtended(false);
       }
-    }
+    };
 
     const timeoutId = setTimeout(handleExtendedLoading, 10000);
     return () => {
