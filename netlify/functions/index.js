@@ -38,7 +38,6 @@ exports.handler = async function (event, context) {
       level,
       lessonLength,
       topic,
-      learningIntention,
       activities,
     } = JSON.parse(event.body);
     console.log(
@@ -47,7 +46,6 @@ exports.handler = async function (event, context) {
       level,
       lessonLength,
       topic,
-      learningIntention,
       activities
     );
 

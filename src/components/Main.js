@@ -8,7 +8,6 @@ export default function Main() {
     level: "Year 10 (students aged 15 to 16)",
     lessonLength: 50,
     topic: "",
-    learningIntention: "",
     activities: "",
   });
   const [response, setResponse] = useState("");
@@ -88,27 +87,11 @@ export default function Main() {
                 onChange={handleChange}
                 name="level"
               >
-                <option value="Grade 1 (students aged 6 to 7)">Grade 1</option>
-                <option value="Grade 2 (students aged 7 to 8)">Grade 2</option>
-                <option value="Grade 3 (students aged 8 to 9)">Grade 3</option>
-                <option value="Grade 4 (students aged 9 to 10)">Grade 4</option>
-                <option value="Grade 5 (students aged 10 to 11)">
-                  Grade 5
+                <option value="Highschool (Junior Level) Teacher">
+                  Highschool: Junior
                 </option>
-                <option value="Grade 6 (students aged 11 to 12)">
-                  Grade 6
-                </option>
-                <option value="Year 7 (students aged 12 to 13)">Year 7</option>
-                <option value="Year 8 (students aged 13 to 14)">Year 8</option>
-                <option value="Year 9 (students aged 14 to 15)">Year 9</option>
-                <option value="Year 10 (students aged 15 to 16)">
-                  Year 10
-                </option>
-                <option value="Year 11 (students aged 16 to 17)">
-                  Year 11
-                </option>
-                <option value="Year 12 (students aged 17 to 18)">
-                  Year 12
+                <option value="Highschool (Senior Level) Teacher">
+                  Highschool: Senior
                 </option>
               </select>
             </div>
@@ -135,7 +118,7 @@ export default function Main() {
           </div>
 
           <p className="form__instruction-text">
-            2. Add main topic of the lesson and the learning intention.
+            2. Add a topic for the lesson.
           </p>
           <input
             type="text"
@@ -143,13 +126,6 @@ export default function Main() {
             onChange={handleChange}
             name="topic"
             value={lessonFormData.topic}
-          />
-          <input
-            type="text"
-            placeholder={`Lesson Intention example: "Analyse how Maslow's Hierarchy of Needs can be used to motivate employees."`}
-            onChange={handleChange}
-            name="learningIntention"
-            value={lessonFormData.learningIntention}
           />
           <br />
 
