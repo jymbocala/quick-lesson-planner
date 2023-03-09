@@ -55,11 +55,11 @@ exports.handler = async function (event, context) {
       messages: [
         {
           role: "system",
-          content: `You are an expert Highschool Teacher that is about to teach a ${subject} class.`,
+          content: `You are an expert Highschool Teacher that is tasked to teach a ${subject} class.`,
         },
         {
           role: "user",
-          content: `Create a lesson plan for a ${subject} lesson I have with the main topic as ${topic}. The lesson is ${lessonLength} minutes long, include time durations for each activity. Include fun and engaging activities throughout the lesson.`,
+          content: `Create an effective lesson plan for the ${subject} lesson with the main topic as '${topic}'. The lesson should be appropriate for ${level} students. The lesson is ${lessonLength} minutes long, include time durations for each task. Include these activities ${activities}, and fill out the rest of the lesson with fun and engaging activities`,
         },
       ],
       max_tokens: 2048,

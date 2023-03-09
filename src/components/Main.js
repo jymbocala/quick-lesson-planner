@@ -87,10 +87,10 @@ export default function Main() {
                 onChange={handleChange}
                 name="level"
               >
-                <option value="Highschool (Junior Level) Teacher">
+                <option value="highschool (Junior Level)">
                   Highschool: Junior
                 </option>
-                <option value="Highschool (Senior Level) Teacher">
+                <option value="highschool (Senior Level)">
                   Highschool: Senior
                 </option>
               </select>
